@@ -3,7 +3,15 @@ export interface Friend {
     phone: string;
     age: number
 }
+export interface EmailContact {
+    name: string;
+    email: string
+}
 
+export interface PhoneContact {
+    name: string;
+    phone: number
+}
 export interface Colleague {
     name: string;
     department: string;
