@@ -65,6 +65,23 @@ function highestExtension(cs: Colleague[]){
     const result: Friend[] = sorted.map((ce)=> ({name: ce.name, phone: ce.phone, age: ce.age}))
     return result;
 
+  };
+
+  function addInterest(friend: Friend, interests: string): any{
+        if(friend.interests !== undefined){
+            friend.interests.push(interests);
+            let ans = friend.interests;
+            return ans;
+        }else{
+
+            const update: Friend = { name: friend.name, interests: [interests], phone: friend.phone,age:friend.age }
+            const test = Object.assign(friend,update)
+            var foundIndex = friends.findIndex(x => x.phone == friend.phone);
+            friends[foundIndex] = test;
+            return friend;
+        }  
   }
-  console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
-console.log(findFriends(friends, (friend) => friend.age < 35));
+  console.log(friends.filter((c) => c.name === "Paul Fleming"));
+  console.log(addInterest(friends[0], 'Politics'))
+  console.log(friends.filter((c) => c.name === "Paul Fleming"));
+  
