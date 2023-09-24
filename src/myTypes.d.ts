@@ -54,7 +54,7 @@ export type EventPass = Omit<Colleague, "contact"> & {
 // Make person's properties immutable.
 export type SecureFriendContact = Readonly<Pick<Friend,"name" | "phone" > >
 
-export type friend_col = {
+export interface friend_col {
     name: string;
     age: number;
     contact: {
@@ -62,3 +62,5 @@ export type friend_col = {
         extension: number
       } 
 }
+
+export type both = friend_col[] | "no friends"

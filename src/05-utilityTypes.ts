@@ -1,5 +1,5 @@
 import { friends, colleagues } from "./01-basics";
-import { Friend, Colleague, SecureFriendContact, FriendPartial, EventPass, friend_col } from "./myTypes";
+import { Friend, Colleague, SecureFriendContact, FriendPartial, EventPass, friend_col, both } from "./myTypes";
 
 function updateFriend(friend: Friend, updates: FriendPartial ) : Friend {
   return { ...friend, ...updates}
@@ -42,11 +42,13 @@ function secureFindFriends(
   function intersection(
     friends: Friend[],
     colleagues: Colleague[]
-  ): friend_col[]| string{
-    let result: friend_col | string = "no friends";
+  ):both {
+    let result: both;
+    result = "no friends"
+    const ans: friend_col [] = [];
     friends.reduce((res, friend) => {const colleague = colleagues.find((col) => col.name === friend.name);
       if (colleague) {
-        result = {
+        const results: friend_col = {
             name: friend.name,
             age: friend.age,
             contact:{
@@ -54,6 +56,8 @@ function secureFindFriends(
                 extension: colleague.contact.extension
             }
         }
+        ans.push(results);
+        result = ans;
       }
       return res;
     }, result);

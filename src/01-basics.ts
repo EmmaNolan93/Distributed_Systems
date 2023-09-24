@@ -28,7 +28,7 @@ const friend1 : Friend = {
   };
   
   const colleague2: Colleague = {
-    name: "Patti Burke",
+    name: "Paul Fleming",
     department: "Finance",
     contact: {
       email: "pburke@company.com",
